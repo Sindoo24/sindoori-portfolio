@@ -111,8 +111,8 @@ export const hackathons = [
     icon: 'award',
   },
   {
-    title: 'Winner — Ideathon at Sreays',
-    detail: 'First place at the Ideathon hosted by Sreays.',
+    title: 'Winner — Ideathon at Sreyas',
+    detail: 'First place at the Ideathon hosted by Sreyas.',
     icon: 'trophy',
   },
 ];

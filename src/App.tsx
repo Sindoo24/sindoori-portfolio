@@ -27,19 +27,10 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
 }
 
 export default function App() {
-  const [copied, setCopied] = useState(false);
   const [activeProject, setActiveProject] = useState(0);
   const reduceMotion = useReducedMotion();
 
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(contact.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      window.location.href = `mailto:${contact.email}`;
-    }
-  };
+
 
   return (
     <>
@@ -140,10 +131,10 @@ export default function App() {
                 <motion.article
                   key={projects[activeProject].index}
                   className="project-card"
-                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                  initial={reduceMotion ? false : { opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, x: -60 }}
+                  transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   {(() => {
                     const project = projects[activeProject];
@@ -203,15 +194,19 @@ export default function App() {
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </button>
-                <div className="project-dots">
+                <div className="project-previews">
                   {projects.map((project, index) => (
                     <button
                       key={project.index}
                       type="button"
-                      aria-label={`Show project ${project.index}`}
+                      className="project-preview"
+                      aria-label={`Preview project ${project.index}: ${project.title}`}
                       aria-current={index === activeProject ? 'true' : undefined}
                       onClick={() => setActiveProject(index)}
-                    />
+                    >
+                      <span className={`preview-thumb visual-${project.variant}`} />
+                      <span className="preview-label">{project.index} · {project.title}</span>
+                    </button>
                   ))}
                 </div>
                 <button
@@ -275,9 +270,6 @@ export default function App() {
               <a className="contact-primary" href={`mailto:${contact.email}`}>
                 Get in touch
               </a>
-              <button className="contact-copy-btn" type="button" onClick={copyEmail}>
-                {copied ? 'Copied' : 'Copy email'}
-              </button>
             </div>
             <div className="contact-links">
               <a href={`mailto:${contact.email}`}>
@@ -293,16 +285,12 @@ export default function App() {
                 {contact.linkedinLabel}
               </a>
             </div>
-            <a className="back-top" href="./">
-              ↑ Back to the dots
-            </a>
           </div>
         </section>
         </main>
 
       <footer className="site-footer">
         <span>© 2026 Sindoori keshamoni</span>
-        <span>66,000 dots · built with three.js</span>
       </footer>
       </div>
     </>
