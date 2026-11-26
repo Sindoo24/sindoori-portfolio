@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, Github } from 'lucide-react';
 import TopBar from './components/TopBar';
+import GoldenOrb from './components/GoldenOrb';
 import { contact, experience, projects, stacks } from './data';
 
 const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
@@ -75,12 +76,17 @@ export default function App() {
         <section id="about" className="section">
           <div className="section-inner">
             <SectionLabel index="01" label="About" />
-            <h2 className="section-title">
-              About <em>me.</em>
-            </h2>
-            <blockquote className="quote">
-              “Figuring it out is the <em>obsession.</em>”
-            </blockquote>
+            <div className="about-row">
+              <div className="about-copy">
+                <h2 className="section-title">
+                  About <em>me.</em>
+                </h2>
+                <blockquote className="quote">
+                  “Figuring it out is the <em>obsession.</em>”
+                </blockquote>
+              </div>
+              <GoldenOrb className="about-orb" />
+            </div>
           </div>
         </section>
 

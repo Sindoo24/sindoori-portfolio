@@ -983,3 +983,59 @@ html[data-mode='light'] .site {
     animation: none;
   }
 }
+
+/* ---------- golden orb beside the About quote ---------- */
+@keyframes gold-orb-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-gold-orb,
+.animate-gold-orbit {
+  transform-origin: 300px 300px;
+  transform-box: view-box;
+  will-change: transform;
+}
+
+.animate-gold-orb {
+  animation: gold-orb-rotate 70s linear infinite;
+}
+
+.animate-gold-orbit {
+  animation: gold-orb-rotate 42s linear infinite reverse;
+}
+
+.about-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 5vw, 70px);
+}
+
+.about-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-orb {
+  width: clamp(220px, 30vw, 380px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+  .about-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-orb {
+    width: min(280px, 70vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gold-orb,
+  .animate-gold-orbit {
+    animation: none;
+  }
+}
