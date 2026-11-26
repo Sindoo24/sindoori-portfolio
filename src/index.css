@@ -1203,3 +1203,41 @@ html[data-mode='light'] .site {
     animation: none;
   }
 }
+
+/* ---------- Hackathons ---------- */
+.hack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  max-width: 900px;
+}
+
+.hack-card {
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid rgba(240, 229, 200, 0.18);
+  border-radius: 24px;
+  background: rgba(201, 212, 184, 0.04);
+}
+
+.hack-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(240, 229, 200, 0.14);
+}
+
+.hack-card h3 {
+  margin: 24px 0 12px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.hack-card p {
+  margin: 0;
+  color: rgba(240, 229, 200, 0.62);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}

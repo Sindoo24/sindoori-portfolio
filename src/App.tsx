@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Award, Github, Trophy } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import TopBar from './components/TopBar';
 import GoldenOrb from './components/GoldenOrb';
 import Arsenal from './components/Arsenal';
-import { contact, experience, projects } from './data';
+import { contact, experience, hackathons, projects } from './data';
 
 const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
   const angle = (i / 96) * Math.PI * 2 - Math.PI / 2;
@@ -237,9 +237,33 @@ export default function App() {
           </div>
         </section>
 
+        <section id="hackathons" className="section">
+          <div className="section-inner">
+            <SectionLabel index="06" label="Hackathons" />
+            <h2 className="section-title">
+              A couple of <em>wins.</em>
+            </h2>
+            <div className="hack-grid">
+              {hackathons.map((item, index) => {
+                const Icon = item.icon === 'trophy' ? Trophy : Award;
+                return (
+                  <article className="hack-card" key={item.title}>
+                    <div className="hack-card-top">
+                      <span className="mono-label">0{index + 1}</span>
+                      <Icon className="h-6 w-6 text-[color:var(--color-tech)]" />
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.detail}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="section contact-section">
           <div className="section-inner">
-            <SectionLabel index="05" label="Contact" />
+            <SectionLabel index="07" label="Contact" />
             <h2 className="section-title">
               Let&apos;s build something <em>worth shipping.</em>
             </h2>

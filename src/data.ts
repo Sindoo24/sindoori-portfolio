@@ -103,3 +103,16 @@ export const contact = {
   linkedin: 'https://linkedin.com/in/sindoori684',
   linkedinLabel: 'linkedin.com/in/sindoori684',
 };
+
+export const hackathons = [
+  {
+    title: 'Runner-up — Shell.AI Hackathon',
+    detail: 'Shell Global Hackathon 2025, placed among 7,000+ participants.',
+    icon: 'award',
+  },
+  {
+    title: 'Winner — Ideathon at Sreays',
+    detail: 'First place at the Ideathon hosted by Sreays.',
+    icon: 'trophy',
+  },
+];
