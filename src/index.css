@@ -397,8 +397,21 @@ body {
   grid-template-columns: minmax(120px, 200px) 1fr;
   gap: clamp(20px, 4vw, 60px);
   padding: clamp(18px, 2vw, 28px) 0;
-  padding-left: 34px;
-  border-bottom: 1px solid rgba(240, 229, 200, 0.14);
+  padding-left: 40px;
+}
+
+.role::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(240, 229, 200, 0.14);
+}
+
+.role:last-child::after {
+  display: none;
 }
 
 .role::before {
@@ -775,70 +788,60 @@ body {
 }
 
 .arsenal-scene {
-  --arsenal-radius: 210px;
   position: relative;
-  width: min(560px, 84vw);
-  height: min(500px, 58vh);
-  perspective: 1100px;
+  width: min(620px, 88vw);
+  height: min(520px, 60vh);
   margin: 0 auto;
 }
 
-.arsenal-tilt,
-.arsenal-sphere {
+.arsenal-pile {
   position: absolute;
   inset: 0;
-  transform-style: preserve-3d;
+  animation: pile-drift 14s ease-in-out infinite;
 }
 
-.arsenal-tilt {
-  transform: rotateX(-8deg);
-}
-
-.arsenal-sphere {
-  animation: arsenal-spin 46s linear infinite;
-}
-
-@keyframes arsenal-spin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-}
-
-.arsenal-scene::before {
-  content: '';
-  position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(127, 168, 163, 0.14), transparent 68%);
-  pointer-events: none;
+@keyframes pile-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
 }
 
 .arsenal-tile {
   position: absolute;
-  top: 50%;
-  left: 50%;
   display: flex;
-  width: 76px;
-  height: 76px;
-  margin: -38px 0 0 -38px;
+  width: 94px;
+  height: 94px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  border-radius: 16px;
+  gap: 6px;
+  border-radius: 20px;
   background: #f7f5ef;
   color: #111;
-  box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 18px 34px -18px rgba(0, 0, 0, 0.85);
+  transform: translate(-50%, -50%) rotate(var(--tile-rot, 0deg));
+  animation: tile-float 7s ease-in-out infinite;
 }
 
-.arsenal-tile svg {
-  color: currentColor;
+@keyframes tile-float {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -7px;
+  }
 }
 
 .arsenal-tile span {
-  max-width: 66px;
+  max-width: 80px;
   overflow: hidden;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.02em;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -868,30 +871,28 @@ body {
   }
 
   .arsenal-scene {
-    --arsenal-radius: 150px;
-    height: 360px;
+    height: 400px;
     margin-top: 14px;
   }
 
   .arsenal-tile {
-    width: 52px;
-    height: 52px;
-    margin: -26px 0 0 -26px;
-    border-radius: 12px;
+    width: 66px;
+    height: 66px;
+    border-radius: 14px;
   }
 
   .arsenal-tile svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 
   .arsenal-tile span {
-    max-width: 46px;
+    max-width: 54px;
     font-size: 7px;
   }
 
   .role {
-    padding: 14px 0 14px 34px;
+    padding: 14px 0 14px 40px;
   }
 
   .role h3 {
@@ -917,7 +918,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arsenal-sphere {
+  .arsenal-pile,
+  .arsenal-tile {
     animation: none;
   }
 }

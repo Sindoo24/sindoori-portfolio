@@ -234,7 +234,7 @@ export default function App() {
 
         <section id="hackathons" className="section">
           <div className="section-inner">
-            <SectionLabel index="06" label="Hackathons" />
+            <SectionLabel index="05" label="Hackathons" />
             <h2 className="section-title">
               A couple of <em>wins.</em>
             </h2>
@@ -258,7 +258,7 @@ export default function App() {
 
         <section id="contact" className="section contact-section">
           <div className="section-inner">
-            <SectionLabel index="07" label="Contact" />
+            <SectionLabel index="06" label="Contact" />
             <h2 className="section-title">
               Let&apos;s build something <em>worth shipping.</em>
             </h2>

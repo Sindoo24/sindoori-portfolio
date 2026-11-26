@@ -327,7 +327,7 @@ function buildGeometry(buffer) {
 
     for (let i = 0; i < finalDots.length && i < DOT_COUNT; i++) {
       const c = finalDots[i];
-      const x = c.x * 2.8;
+      const x = c.x * 2.8 - 0.22;
       const y = c.y * 2.8 - 0.68;
       const z = c.z * 2.8;
       positions[i * 3] = x;
