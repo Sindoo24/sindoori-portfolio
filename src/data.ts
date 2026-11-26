@@ -1,6 +1,6 @@
 export const experience = [
   {
-    period: '2025',
+    period: 'FEB 2026 — APR 2026',
     type: 'Research · Internship',
     role: 'AI Research Intern',
     company: 'Aesora Inc',
@@ -13,7 +13,7 @@ export const experience = [
     tech: ['LLMs', 'LangGraph', 'RAG', 'Python', 'FastAPI'],
   },
   {
-    period: '2024',
+    period: 'APR 2026 — AUG 2026',
     type: 'Product · Internship',
     role: 'AI / Developer Intern',
     company: 'Qualitia Software',

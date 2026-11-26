@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import TopBar from './components/TopBar';
 import GoldenOrb from './components/GoldenOrb';
 import { contact, experience, projects, stacks } from './data';
@@ -26,6 +27,8 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
 
 export default function App() {
   const [copied, setCopied] = useState(false);
+  const [activeProject, setActiveProject] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   const copyEmail = async () => {
     try {
@@ -131,49 +134,93 @@ export default function App() {
             <h2 className="section-title">
               Work that <em>ships.</em>
             </h2>
-            <div className="project-grid">
-              {projects.map((project) => (
-                <article className="project-card" key={project.index}>
-                  <div className={`project-visual visual-${project.variant}`}>
-                    <span className="project-tagline">
-                      {project.meta} <span>·</span> {project.year}
-                    </span>
-                    <span className="project-big-index">{project.index}</span>
-                    {project.badge && <span className="project-badge">{project.badge}</span>}
-                  </div>
-                  <div className="project-body">
-                    <div className="project-heading">
-                      <h3>{project.title}</h3>
-                      <a
-                        href={contact.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`${project.title} on GitHub`}
-                      >
-                        <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                    </div>
-                    <p>{project.blurb}</p>
-                    {project.overview && <p className="project-overview">{project.overview}</p>}
-                    <div className="project-footer">
-                      <div className="chips">
-                        {project.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
-                      <a
-                        href={contact.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="GitHub"
-                        className="project-github"
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              ))}
+            <div className="project-single">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.article
+                  key={projects[activeProject].index}
+                  className="project-card"
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  {(() => {
+                    const project = projects[activeProject];
+                    return (
+                      <>
+                        <div className={`project-visual visual-${project.variant}`}>
+                          <span className="project-tagline">
+                            {project.meta} <span>·</span> {project.year}
+                          </span>
+                          <span className="project-big-index">{project.index}</span>
+                          {project.badge && <span className="project-badge">{project.badge}</span>}
+                        </div>
+                        <div className="project-body">
+                          <div className="project-heading">
+                            <h3>{project.title}</h3>
+                            <a
+                              href={contact.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              aria-label={`${project.title} on GitHub`}
+                            >
+                              <ArrowUpRight className="h-4 w-4" />
+                            </a>
+                          </div>
+                          <p>{project.blurb}</p>
+                          {project.overview && <p className="project-overview">{project.overview}</p>}
+                          <div className="project-footer">
+                            <div className="chips">
+                              {project.tags.map((tag) => (
+                                <span key={tag}>{tag}</span>
+                              ))}
+                            </div>
+                            <a
+                              href={contact.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              aria-label="GitHub"
+                              className="project-github"
+                            >
+                              <Github className="h-4 w-4" />
+                            </a>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })()}
+                </motion.article>
+              </AnimatePresence>
+
+              <div className="project-nav" aria-label="Project navigation">
+                <button
+                  type="button"
+                  aria-label="Previous project"
+                  onClick={() =>
+                    setActiveProject((current) => (current - 1 + projects.length) % projects.length)
+                  }
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </button>
+                <div className="project-dots">
+                  {projects.map((project, index) => (
+                    <button
+                      key={project.index}
+                      type="button"
+                      aria-label={`Show project ${project.index}`}
+                      aria-current={index === activeProject ? 'true' : undefined}
+                      onClick={() => setActiveProject(index)}
+                    />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  aria-label="Next project"
+                  onClick={() => setActiveProject((current) => (current + 1) % projects.length)}
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </div>
         </section>

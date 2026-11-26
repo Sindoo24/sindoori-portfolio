@@ -371,15 +371,44 @@ body {
 }
 
 .timeline {
-  border-top: 1px solid rgba(240, 229, 200, 0.14);
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-tech),
+    rgba(127, 168, 163, 0.25)
+  );
 }
 
 .role {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(120px, 200px) 1fr;
   gap: clamp(20px, 4vw, 60px);
   padding: clamp(18px, 2vw, 28px) 0;
   border-bottom: 1px solid rgba(240, 229, 200, 0.14);
+}
+
+.role::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: clamp(18px, 2vw, 28px);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--color-tech);
+  background: var(--color-night);
+  box-shadow: 0 0 0 4px rgba(127, 168, 163, 0.1);
 }
 
 .role-meta {
@@ -433,10 +462,9 @@ body {
   color: rgba(240, 229, 200, 0.7);
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+.project-single {
+  max-width: 840px;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -456,7 +484,7 @@ body {
 
 .project-visual {
   position: relative;
-  height: clamp(88px, 7vw, 108px);
+  height: clamp(180px, 20vw, 250px);
   overflow: hidden;
   border-bottom: 1px solid rgba(240, 229, 200, 0.12);
 }
@@ -484,10 +512,10 @@ body {
 .project-big-index {
   position: absolute;
   left: 18px;
-  bottom: -10px;
+  bottom: -22px;
   z-index: 2;
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(4.5rem, 8vw, 7rem);
   line-height: 1;
   color: rgba(240, 229, 200, 0.82);
 }
@@ -549,7 +577,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: clamp(16px, 1.6vw, 22px);
+  padding: clamp(22px, 2.4vw, 34px);
 }
 
 .project-heading {
@@ -578,14 +606,10 @@ body {
 }
 
 .project-body > p {
-  margin: 8px 0 0;
-  color: rgba(240, 229, 200, 0.62);
-  font-size: 0.78rem;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 12px 0 0;
+  color: rgba(240, 229, 200, 0.66);
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .project-overview {
@@ -593,10 +617,10 @@ body {
   padding-top: 6px;
   border-top: 1px solid rgba(240, 229, 200, 0.1);
   color: rgba(240, 229, 200, 0.45);
-  font-size: 0.74rem;
-  line-height: 1.4;
+  font-size: 0.82rem;
+  line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -612,8 +636,6 @@ body {
 
 .project-footer .chips {
   margin-top: 0;
-  max-height: 22px;
-  overflow: hidden;
 }
 
 .project-github {
@@ -633,15 +655,61 @@ body {
   color: var(--color-tech);
 }
 
-@media (max-width: 1000px) {
-  .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.project-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 22px;
 }
 
-@media (max-width: 640px) {
-  .project-grid {
-    grid-template-columns: 1fr;
+.project-nav > button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 229, 200, 0.2);
+  background: transparent;
+  color: rgba(240, 229, 200, 0.75);
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.project-nav > button:hover {
+  border-color: var(--color-tech);
+  color: var(--color-tech);
+}
+
+.project-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 1px solid rgba(240, 229, 200, 0.4);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.project-dots button[aria-current='true'] {
+  border-color: var(--color-tech);
+  background: var(--color-tech);
+}
+
+@media (max-width: 700px) {
+  .project-visual {
+    height: clamp(140px, 38vw, 200px);
+  }
+
+  .project-big-index {
+    font-size: clamp(3.5rem, 18vw, 5rem);
+    bottom: -14px;
   }
 }
 
