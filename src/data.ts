@@ -1,6 +1,6 @@
 export const experience = [
   {
-    period: 'FEB 2026 — APR 2026',
+    period: 'MAY 2026 — AUG 2026',
     type: 'Research · Internship',
     role: 'AI Research Intern',
     company: 'Aesora Inc',
@@ -13,7 +13,7 @@ export const experience = [
     tech: ['LLMs', 'LangGraph', 'RAG', 'Python', 'FastAPI'],
   },
   {
-    period: 'APR 2026 — AUG 2026',
+    period: 'FEB 2026 — APR 2026',
     type: 'Product · Internship',
     role: 'AI / Developer Intern',
     company: 'Qualitia Software',
@@ -94,12 +94,6 @@ export const projects = [
       'More experiments, notes and repositories from the same workbench.',
     tags: ['GitHub', 'Open source'],
   },
-];
-
-export const stacks = [
-  { label: 'AI & Machine Learning', items: ['Python', 'PyTorch', 'Machine Learning', 'Deep Learning', 'NLP', 'LLMs', 'LangGraph', 'LangChain', 'RAG', 'TabPFN'] },
-  { label: 'Engineering', items: ['FastAPI', 'PostgreSQL', 'Docker', 'AWS', 'Java', 'SQL', 'REST APIs', 'OpenTelemetry'] },
-  { label: 'Tools & Frameworks', items: ['Git', 'Linux', 'Streamlit', 'FAISS', 'CLIP', 'Gemini', 'Qwen', 'Jupyter'] },
 ];
 
 export const contact = {

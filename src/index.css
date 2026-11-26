@@ -276,6 +276,7 @@ body {
 .section {
   position: relative;
   display: flex;
+  overflow: hidden;
   align-items: center;
   min-height: 100svh;
   padding: clamp(40px, 4vw, 56px) clamp(20px, 4vw, 64px);
@@ -713,31 +714,110 @@ body {
   }
 }
 
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-.stack-card {
-  padding: clamp(24px, 3vw, 36px);
-  border: 1px solid rgba(240, 229, 200, 0.16);
-  border-radius: 24px;
-}
-
-.stack-head {
+.stack-inner {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid rgba(240, 229, 200, 0.14);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.stack-head h3 {
+.arsenal-heading {
+  margin-bottom: clamp(8px, 2vw, 24px);
+}
+
+.arsenal-title {
   margin: 0;
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: clamp(2rem, 6vw, 4.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.arsenal-heading p {
+  max-width: 54ch;
+  margin: 14px auto 0;
+  color: rgba(240, 229, 200, 0.55);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.arsenal-scene {
+  position: relative;
+  width: min(560px, 84vw);
+  height: min(500px, 58vh);
+  perspective: 1100px;
+  margin: 0 auto;
+}
+
+.arsenal-tilt,
+.arsenal-sphere {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.arsenal-tilt {
+  transform: rotateX(-8deg);
+}
+
+.arsenal-sphere {
+  animation: arsenal-spin 46s linear infinite;
+}
+
+@keyframes arsenal-spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.arsenal-tile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 16px;
+  background: #f7f5ef;
+  color: #111;
+  box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.8);
+}
+
+.arsenal-tile svg {
+  color: #111;
+}
+
+.arsenal-tile span {
+  max-width: 66px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .arsenal-scene {
+    height: 380px;
+  }
+
+  .arsenal-tile {
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arsenal-sphere {
+    animation: none;
+  }
 }
 
 .contact-copy {

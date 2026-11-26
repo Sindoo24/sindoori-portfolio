@@ -3,7 +3,8 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import TopBar from './components/TopBar';
 import GoldenOrb from './components/GoldenOrb';
-import { contact, experience, projects, stacks } from './data';
+import Arsenal from './components/Arsenal';
+import { contact, experience, projects } from './data';
 
 const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
   const angle = (i / 96) * Math.PI * 2 - Math.PI / 2;
@@ -226,26 +227,13 @@ export default function App() {
         </section>
 
         <section id="stack" className="section">
-          <div className="section-inner">
+          <div className="section-inner stack-inner">
             <SectionLabel index="04" label="Stack" />
-            <h2 className="section-title">
-              Tools of the <em>trade.</em>
-            </h2>
-            <div className="stack-grid">
-              {stacks.map((group, index) => (
-                <div className="stack-card" key={group.label}>
-                  <div className="stack-head">
-                    <h3>{group.label}</h3>
-                    <span className="mono-label">0{index + 1}</span>
-                  </div>
-                  <div className="chips">
-                    {group.items.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="arsenal-heading">
+              <h2 className="arsenal-title">Technical Arsenal</h2>
+              <p>The tools I reach for when an idea has to become a working, measured system.</p>
             </div>
+            <Arsenal />
           </div>
         </section>
 
