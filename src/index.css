@@ -152,7 +152,6 @@ body {
 }
 
 .hero-title,
-.tagline,
 .hint {
   margin: 0;
   position: absolute;
@@ -195,18 +194,6 @@ body {
   background: none !important;
 }
 
-.tagline {
-  left: clamp(20px, 4vw, 64px);
-  top: calc(50% + clamp(80px, 13vw, 190px));
-  font-family: var(--font-mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-muted);
-  transition-delay: 0.12s;
-  z-index: 4;
-}
-
 .hint {
   bottom: 22px;
   left: 50%;
@@ -225,56 +212,15 @@ body {
   transform: translateY(-50%);
 }
 
-.page[data-phase='ready'] .tagline {
-  opacity: 0.8;
-}
-
 .page[data-phase='ready'] .hint {
   opacity: 0.45;
   transform: translate(-50%, 0);
-}
-
-.pill {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 7;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  box-shadow:
-    0 0 0 1px var(--color-line),
-    0 10px 24px -12px #0006;
-  opacity: 0;
-  animation: pill-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 4s both;
-}
-
-@keyframes pill-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @media (max-width: 700px) {
   .hero-title {
     font-size: clamp(2.8rem, 13vw, 5rem);
     top: 56%;
-  }
-
-  .tagline {
-    top: auto;
-    bottom: 110px;
-    left: 20px;
   }
 
   .hint {
@@ -301,7 +247,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .loader,
   .hero-title,
-  .tagline,
   .hint {
     transition: none;
   }
@@ -330,7 +275,10 @@ body {
 
 .section {
   position: relative;
-  padding: clamp(84px, 11vw, 150px) clamp(20px, 4vw, 64px);
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  padding: clamp(40px, 4vw, 56px) clamp(20px, 4vw, 64px);
   border-bottom: 1px solid rgba(240, 229, 200, 0.1);
 }
 
@@ -339,6 +287,7 @@ body {
 }
 
 .section-inner {
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -347,7 +296,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin: 0 0 clamp(32px, 5vw, 64px);
+  margin: 0 0 clamp(20px, 3vw, 36px);
   font-family: var(--font-mono);
   font-size: 11px;
   text-transform: uppercase;
@@ -363,8 +312,8 @@ body {
 }
 
 .section-title {
-  margin: 0 0 clamp(36px, 5vw, 64px);
-  font-size: clamp(2.2rem, 6.4vw, 5.2rem);
+  margin: 0 0 clamp(24px, 3vw, 40px);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -411,7 +360,7 @@ body {
 }
 
 .role-body li + li {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .role-body li::before {
@@ -429,7 +378,7 @@ body {
   display: grid;
   grid-template-columns: minmax(120px, 200px) 1fr;
   gap: clamp(20px, 4vw, 60px);
-  padding: clamp(30px, 4vw, 54px) 0;
+  padding: clamp(18px, 2vw, 28px) 0;
   border-bottom: 1px solid rgba(240, 229, 200, 0.14);
 }
 
@@ -463,23 +412,23 @@ body {
 }
 
 .role-summary {
-  margin: 14px 0 24px;
+  margin: 10px 0 16px;
   color: rgba(240, 229, 200, 0.62);
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 26px;
+  gap: 6px;
+  margin-top: 12px;
 }
 
 .chips span {
-  padding: 7px 12px;
+  padding: 5px 9px;
   border: 1px solid rgba(240, 229, 200, 0.16);
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 9.5px;
   letter-spacing: 0.06em;
   color: rgba(240, 229, 200, 0.7);
 }
@@ -507,7 +456,7 @@ body {
 
 .project-visual {
   position: relative;
-  height: clamp(150px, 15vw, 200px);
+  height: clamp(88px, 7vw, 108px);
   overflow: hidden;
   border-bottom: 1px solid rgba(240, 229, 200, 0.12);
 }
@@ -535,10 +484,10 @@ body {
 .project-big-index {
   position: absolute;
   left: 18px;
-  bottom: -18px;
+  bottom: -10px;
   z-index: 2;
   font-family: var(--font-serif);
-  font-size: clamp(4.5rem, 9vw, 7rem);
+  font-size: clamp(3rem, 6vw, 4.5rem);
   line-height: 1;
   color: rgba(240, 229, 200, 0.82);
 }
@@ -600,7 +549,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: clamp(20px, 2.2vw, 30px);
+  padding: clamp(16px, 1.6vw, 22px);
 }
 
 .project-heading {
@@ -612,7 +561,7 @@ body {
 
 .project-heading h3 {
   margin: 0;
-  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -629,19 +578,25 @@ body {
 }
 
 .project-body > p {
-  margin: 14px 0 0;
+  margin: 8px 0 0;
   color: rgba(240, 229, 200, 0.62);
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-overview {
-  margin-top: 10px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(240, 229, 200, 0.1);
   color: rgba(240, 229, 200, 0.45);
-  font-size: 0.84rem;
-  line-height: 1.6;
+  font-size: 0.74rem;
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -652,11 +607,13 @@ body {
   justify-content: space-between;
   gap: 12px;
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 12px;
 }
 
 .project-footer .chips {
   margin-top: 0;
+  max-height: 22px;
+  overflow: hidden;
 }
 
 .project-github {

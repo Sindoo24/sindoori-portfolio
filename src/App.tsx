@@ -66,11 +66,7 @@ export default function App() {
             Sindoori<span className="hero-dot">.</span>
           </span>
         </h1>
-        <p className="tagline">Grows quiet things with AI</p>
         <p className="hint">Move the light</p>
-        <a className="pill" href="#about">
-          How this page was made →
-        </a>
       </div>
 
 
