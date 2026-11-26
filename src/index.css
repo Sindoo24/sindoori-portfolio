@@ -276,6 +276,7 @@ body {
 .section {
   position: relative;
   display: flex;
+  scroll-margin-top: 78px;
   overflow: hidden;
   align-items: center;
   min-height: 100svh;
@@ -743,6 +744,7 @@ body {
 }
 
 .arsenal-scene {
+  --arsenal-radius: 250px;
   position: relative;
   width: min(560px, 84vw);
   height: min(500px, 58vh);
@@ -803,14 +805,74 @@ body {
 }
 
 @media (max-width: 700px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+  }
+
+  .hero-title {
+    top: 108px;
+    transform: translateY(10px);
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .page[data-phase='ready'] .hero-title {
+    transform: translateY(0);
+  }
+
+  .arsenal-heading p {
+    font-size: 0.82rem;
+  }
+
   .arsenal-scene {
-    height: 380px;
+    --arsenal-radius: 150px;
+    height: 360px;
+    margin-top: 14px;
   }
 
   .arsenal-tile {
-    width: 64px;
-    height: 64px;
-    margin: -32px 0 0 -32px;
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    border-radius: 12px;
+  }
+
+  .arsenal-tile svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .arsenal-tile span {
+    max-width: 46px;
+    font-size: 7px;
+  }
+
+  .role {
+    padding: 14px 0;
+  }
+
+  .role h3 {
+    font-size: 1.1rem;
+  }
+
+  .role-summary {
+    margin: 8px 0 12px;
+    font-size: 0.78rem;
+  }
+
+  .role-body li {
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-links a {
+    flex-direction: column;
+    gap: 6px;
   }
 }
 

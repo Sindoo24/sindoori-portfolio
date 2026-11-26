@@ -81,7 +81,7 @@ export default function Arsenal() {
               key={label}
               className="arsenal-tile"
               style={{
-                transform: `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(250px)`,
+                transform: `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(var(--arsenal-radius, 250px))`,
               }}
               title={label}
             >
