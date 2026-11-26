@@ -61,9 +61,9 @@ export default function App() {
         </div>
 
         <h1 className="hero-title hero-heading">
-          <span>hi I&apos;m</span>
+          <span>Hi I&apos;m</span>
           <span>
-            sindoori<span className="hero-dot">.</span>
+            Sindoori<span className="hero-dot">.</span>
           </span>
         </h1>
         <p className="tagline">Grows quiet things with AI</p>
