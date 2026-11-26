@@ -55,6 +55,7 @@ export default function TopBar() {
             <span className="topbar-status" aria-hidden="true" />
           </span>
           <span className="topbar-name">Sindoori</span>
+          <span className="topbar-role">AI Engineer</span>
         </a>
 
         <nav className="topbar-links" aria-label="Portfolio">
