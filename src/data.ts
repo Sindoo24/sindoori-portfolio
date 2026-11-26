@@ -31,16 +31,20 @@ export const projects = [
   {
     index: '01',
     title: 'Autonomous Software Engineering Agent',
-    meta: 'Agentic systems',
+    meta: 'AI / ML',
+    year: '2025',
+    variant: 1,
     badge: 'Flagship',
     blurb:
       'A multi-agent system that plans, writes, tests, and iterates on code end to end — with sandboxed execution and tracing for every run.',
-    tags: ['LangGraph', 'Qwen', 'FastAPI', 'PostgreSQL', 'Docker', 'OpenTelemetry'],
+    tags: ['LangGraph', 'Qwen', 'FastAPI', 'PostgreSQL', 'Docker'],
   },
   {
     index: '02',
     title: 'Multimodal RAG System',
-    meta: 'Retrieval & generation',
+    meta: 'AI / ML',
+    year: '2025',
+    variant: 2,
     blurb:
       'Grounded answers across text, images, and PDFs using CLIP embeddings, FAISS retrieval, and Gemini generation.',
     tags: ['FAISS', 'CLIP', 'Gemini', 'Streamlit'],
@@ -48,7 +52,9 @@ export const projects = [
   {
     index: '03',
     title: 'FuelBlend AI',
-    meta: 'Applied ML',
+    meta: 'AI / ML',
+    year: '2025',
+    variant: 3,
     badge: 'Shell 2025 · Runner-up',
     blurb:
       'An ML model that optimizes sustainable aviation fuel blends — runner-up at Shell Global Hackathon 2025 among 7,000+ participants.',
@@ -57,22 +63,36 @@ export const projects = [
   {
     index: '04',
     title: 'AI Image Captioning Model',
-    meta: 'Computer vision',
+    meta: 'Computer Vision',
+    year: '2025',
+    variant: 4,
     blurb:
       'Offline AI image captioning system using BLIP & ViT-GPT2 with validated 45% semantic accuracy.',
     overview:
-      'This project implements a locally hosted, production-ready AI application capable of generating descriptive captions for images in real-time. It leverages state-of-the-art Vision-Language models (BLIP and ViT-GPT2) to interpret visual scenes and convert them into natural language. The system includes a robust evaluation pipeline validated against the Flickr8k dataset (8,000+ images), achieving industry-standard performance metrics suitable for automated metadata tagging and accessibility tools.',
+      'Locally hosted production-ready captions in real time, validated against Flickr8k (8,000+ images) for metadata tagging and accessibility.',
     tags: ['Python 3.9+', 'PyTorch 2.0', 'Streamlit', 'BLIP', 'ViT-GPT2'],
   },
   {
     index: '05',
     title: 'CHECKERS-AI',
-    meta: 'Game AI',
+    meta: 'Systems',
+    year: '2025',
+    variant: 5,
     blurb:
       'An AI-powered Checkers game implementing the Minimax algorithm for strategic decision-making, built with Python and Pygame.',
     overview:
-      'This project is a fully functional implementation of the classic board game Checkers, developed using Python and Pygame, where a human player competes against an intelligent AI on an 8×8 grid. At the core of the project lies the Minimax Algorithm, a recursive decision-making strategy rooted in Game Theory. The AI evaluates moves to maximize its own advantages while assuming the opponent plays optimally to minimize it. Beyond gameplay, the application demonstrates key theoretical concepts such as efficient game loop management, deep recursion for tree traversal, and heuristic evaluation of complex board configurations.',
+      'Human vs AI on an 8×8 grid, with recursive game-tree search, deep recursion, and heuristic evaluation of board configurations.',
     tags: ['Python', 'Pygame', 'Minimax', 'Game Theory'],
+  },
+  {
+    index: '06',
+    title: 'More on GitHub',
+    meta: 'Elsewhere',
+    year: '2026',
+    variant: 6,
+    blurb:
+      'More experiments, notes and repositories from the same workbench.',
+    tags: ['GitHub', 'Open source'],
   },
 ];
 

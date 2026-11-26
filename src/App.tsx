@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import TopBar from './components/TopBar';
 import { contact, experience, projects, stacks } from './data';
 
@@ -126,28 +127,43 @@ export default function App() {
             <div className="project-grid">
               {projects.map((project) => (
                 <article className="project-card" key={project.index}>
-                  <div className="project-top">
-                    <span className="project-index">{project.index}</span>
-                    <div>
-                      <p className="mono-label">{project.meta}</p>
-                      {project.badge && <span className="project-badge">{project.badge}</span>}
-                    </div>
-                    <a href={contact.github} target="_blank" rel="noreferrer" aria-label="View on GitHub">
-                      ↗
-                    </a>
+                  <div className={`project-visual visual-${project.variant}`}>
+                    <span className="project-tagline">
+                      {project.meta} <span>·</span> {project.year}
+                    </span>
+                    <span className="project-big-index">{project.index}</span>
+                    {project.badge && <span className="project-badge">{project.badge}</span>}
                   </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.blurb}</p>
-                  {project.overview && (
-                    <div className="project-overview">
-                      <p className="mono-label">Overview</p>
-                      <p>{project.overview}</p>
+                  <div className="project-body">
+                    <div className="project-heading">
+                      <h3>{project.title}</h3>
+                      <a
+                        href={contact.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.title} on GitHub`}
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
                     </div>
-                  )}
-                  <div className="chips">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
+                    <p>{project.blurb}</p>
+                    {project.overview && <p className="project-overview">{project.overview}</p>}
+                    <div className="project-footer">
+                      <div className="chips">
+                        {project.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
+                      <a
+                        href={contact.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="GitHub"
+                        className="project-github"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                    </div>
                   </div>
                 </article>
               ))}
