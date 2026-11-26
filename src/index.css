@@ -590,6 +590,20 @@ body {
   line-height: 1.7;
 }
 
+.project-overview {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(240, 229, 200, 0.12);
+}
+
+.project-overview > p:last-child {
+  max-width: 76ch;
+  margin: 0;
+  color: rgba(240, 229, 200, 0.62);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

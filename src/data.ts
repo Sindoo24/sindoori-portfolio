@@ -54,6 +54,26 @@ export const projects = [
       'An ML model that optimizes sustainable aviation fuel blends — runner-up at Shell Global Hackathon 2025 among 7,000+ participants.',
     tags: ['TabPFN', 'Machine Learning', 'Sustainable Aviation Fuel'],
   },
+  {
+    index: '04',
+    title: 'AI Image Captioning Model',
+    meta: 'Computer vision',
+    blurb:
+      'Offline AI image captioning system using BLIP & ViT-GPT2 with validated 45% semantic accuracy.',
+    overview:
+      'This project implements a locally hosted, production-ready AI application capable of generating descriptive captions for images in real-time. It leverages state-of-the-art Vision-Language models (BLIP and ViT-GPT2) to interpret visual scenes and convert them into natural language. The system includes a robust evaluation pipeline validated against the Flickr8k dataset (8,000+ images), achieving industry-standard performance metrics suitable for automated metadata tagging and accessibility tools.',
+    tags: ['Python 3.9+', 'PyTorch 2.0', 'Streamlit', 'BLIP', 'ViT-GPT2'],
+  },
+  {
+    index: '05',
+    title: 'CHECKERS-AI',
+    meta: 'Game AI',
+    blurb:
+      'An AI-powered Checkers game implementing the Minimax algorithm for strategic decision-making, built with Python and Pygame.',
+    overview:
+      'This project is a fully functional implementation of the classic board game Checkers, developed using Python and Pygame, where a human player competes against an intelligent AI on an 8×8 grid. At the core of the project lies the Minimax Algorithm, a recursive decision-making strategy rooted in Game Theory. The AI evaluates moves to maximize its own advantages while assuming the opponent plays optimally to minimize it. Beyond gameplay, the application demonstrates key theoretical concepts such as efficient game loop management, deep recursion for tree traversal, and heuristic evaluation of complex board configurations.',
+    tags: ['Python', 'Pygame', 'Minimax', 'Game Theory'],
+  },
 ];
 
 export const stacks = [

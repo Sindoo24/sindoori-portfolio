@@ -158,6 +158,12 @@ export default function App() {
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.blurb}</p>
+                  {project.overview && (
+                    <div className="project-overview">
+                      <p className="mono-label">Overview</p>
+                      <p>{project.overview}</p>
+                    </div>
+                  )}
                   <div className="chips">
                     {project.tags.map((tag) => (
                       <span key={tag}>{tag}</span>
