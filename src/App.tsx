@@ -26,6 +26,12 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
   );
 }
 
+const contactRows = [
+  { label: 'Email', value: contact.email, href: `mailto:${contact.email}` },
+  { label: 'GitHub', value: contact.githubLabel, href: contact.github },
+  { label: 'LinkedIn', value: contact.linkedinLabel, href: contact.linkedin },
+];
+
 export default function App() {
   const [activeProject, setActiveProject] = useState(0);
   const reduceMotion = useReducedMotion();
@@ -272,18 +278,23 @@ export default function App() {
               </a>
             </div>
             <div className="contact-links">
-              <a href={`mailto:${contact.email}`}>
-                <span>Email</span>
-                {contact.email}
-              </a>
-              <a href={contact.github} target="_blank" rel="noreferrer">
-                <span>GitHub</span>
-                {contact.githubLabel}
-              </a>
-              <a href={contact.linkedin} target="_blank" rel="noreferrer">
-                <span>LinkedIn</span>
-                {contact.linkedinLabel}
-              </a>
+              {contactRows.map((row) => (
+                <div className="contact-link" key={row.label}>
+                  <div>
+                    <span className="mono-label">{row.label}</span>
+                    <span className="contact-link-value">{row.value}</span>
+                  </div>
+                  <a
+                    className="contact-link-btn"
+                    href={row.href}
+                    target={row.href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={row.href.startsWith('mailto:') ? undefined : 'noreferrer'}
+                    aria-label={`Open ${row.label}`}
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </section>
