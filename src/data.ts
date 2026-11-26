@@ -1,16 +1,3 @@
-export const about = {
-  quote: 'Figuring it out is the obsession.',
-  paragraphs: [
-    'I’m Sindoori, an AI/ML engineer in Hyderabad. I work on LLM agents, multimodal retrieval, and applied ML — systems that have to hold up outside a notebook. Most of my attention goes to what decides whether they do: evaluation, tracing, and the instrumentation that makes failure legible.',
-    'I learn by rebuilding. A retrieval pipeline, an agent loop, a model — I rebuild them until I can explain where they break and why. That is slower than reading the documentation, but it is the only way I have found to earn a real opinion.',
-  ],
-  curiosities: [
-    'Where agent planning breaks: tool misuse, silent retries, and the traces that reveal both.',
-    'Retrieval that knows when the corpus doesn’t contain the answer — and says so.',
-    'What it takes to trust an LLM system: evals that fail loudly, traces that explain the failure.',
-  ],
-};
-
 export const experience = [
   {
     period: '2025',

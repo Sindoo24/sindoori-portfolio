@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { about, contact, experience, projects, stacks } from './data';
+import { contact, experience, projects, stacks } from './data';
 
 const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
   const angle = (i / 96) * Math.PI * 2 - Math.PI / 2;
@@ -99,19 +99,6 @@ export default function App() {
             <blockquote className="quote">
               “Figuring it out is the <em>obsession.</em>”
             </blockquote>
-            <div className="bio">
-              {about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="curiosities">
-              <p className="mono-label">Currently curious about</p>
-              <ul>
-                {about.curiosities.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
           </div>
         </section>
 

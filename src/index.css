@@ -435,29 +435,6 @@ body {
   letter-spacing: -0.015em;
 }
 
-.bio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(24px, 4vw, 56px);
-  max-width: 980px;
-  color: rgba(240, 229, 200, 0.72);
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  line-height: 1.75;
-}
-
-.bio p {
-  margin: 0;
-}
-
-.curiosities {
-  margin-top: clamp(48px, 7vw, 90px);
-  max-width: 760px;
-  padding: clamp(24px, 3vw, 38px);
-  border: 1px solid rgba(240, 229, 200, 0.14);
-  border-radius: 18px;
-  background: rgba(127, 168, 163, 0.04);
-}
-
 .mono-label {
   margin: 0 0 18px;
   font-family: var(--font-mono);
@@ -467,14 +444,12 @@ body {
   color: var(--color-tech);
 }
 
-.curiosities ul,
 .role-body ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.curiosities li,
 .role-body li {
   position: relative;
   padding-left: 20px;
@@ -482,12 +457,10 @@ body {
   line-height: 1.7;
 }
 
-.curiosities li + li,
 .role-body li + li {
   margin-top: 12px;
 }
 
-.curiosities li::before,
 .role-body li::before {
   content: '·';
   position: absolute;
