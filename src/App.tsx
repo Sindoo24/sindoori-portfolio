@@ -60,7 +60,12 @@ export default function App() {
           <span className="label">66,000 dots</span>
         </div>
 
-        <h1 className="name">Sindoori keshamoni</h1>
+        <h1 className="hero-title hero-heading">
+          <span>hi I&apos;m</span>
+          <span>
+            sindoori<span className="hero-dot">.</span>
+          </span>
+        </h1>
         <p className="tagline">Grows quiet things with AI</p>
         <p className="hint">Move the light</p>
         <a className="pill" href="#about">
