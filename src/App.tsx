@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import TopBar from './components/TopBar';
 import { contact, experience, projects, stacks } from './data';
 
 const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
@@ -10,13 +11,7 @@ const RING_DOTS = Array.from({ length: 96 }, (_, i) => {
   };
 });
 
-const NAV = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Work' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#contact', label: 'Contact' },
-];
+
 
 function SectionLabel({ index, label }: { index: string; label: string }) {
   return (
@@ -28,15 +23,7 @@ function SectionLabel({ index, label }: { index: string; label: string }) {
 }
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const copyEmail = async () => {
     try {
@@ -49,7 +36,9 @@ export default function App() {
   };
 
   return (
-    <div className="site">
+    <>
+      <TopBar />
+      <div className="site">
       <div className="page" data-phase="loading">
         <div className="stage" aria-hidden="true" />
 
@@ -70,9 +59,6 @@ export default function App() {
           <span className="label">66,000 dots</span>
         </div>
 
-        <a className="logo" href="./">
-          Sindoori.
-        </a>
         <h1 className="name">Sindoori keshamoni</h1>
         <p className="tagline">Grows quiet things with AI</p>
         <p className="hint">Move the light</p>
@@ -81,13 +67,7 @@ export default function App() {
         </a>
       </div>
 
-      <nav className="site-nav" data-show={scrolled} aria-label="Portfolio">
-        {NAV.map(({ href, label }) => (
-          <a key={href} href={href}>
-            {label}
-          </a>
-        ))}
-      </nav>
+
 
       <main className="portfolio">
         <section id="about" className="section">
@@ -236,12 +216,13 @@ export default function App() {
             </a>
           </div>
         </section>
-      </main>
+        </main>
 
       <footer className="site-footer">
         <span>© 2026 Sindoori keshamoni</span>
         <span>66,000 dots · built with three.js</span>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
